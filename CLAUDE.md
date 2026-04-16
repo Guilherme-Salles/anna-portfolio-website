@@ -1,5 +1,3 @@
-@AGENTS.md
-
 # Anna Bengaly — Portfolio Website
 
 ## Project Overview
@@ -116,9 +114,9 @@ The hero has **two images** (left and right) flanking a centered headline. Curre
 
 ## Project Data
 
-Projects are stored locally in `src/data/projects.json` — **no Behance API integration**. When Anna wants to add a project, she edits the JSON and pushes to GitHub — Vercel auto-deploys.
+Projects are stored locally in `src/data/projects.json` — **no Behance API integration** (API limits cover images only; descriptions not accessible). When Anna wants to add a project, she edits the JSON and pushes to GitHub — Vercel auto-deploys.
 
-Raw Behance data: `behance-projects.json` at repo root (reference only, not used at runtime).
+Raw data scraped from Behance is in `behance-projects.json` at the repo root (reference only).
 
 ### Anna's 6 Projects
 
@@ -131,7 +129,7 @@ Raw Behance data: `behance-projects.json` at repo root (reference only, not used
 | 5 | Virtual MED | 109343675 | UI, UX, Telemedicine |
 | 6 | Fashi-on | 109341327 | UI, UX, Ecommerce, Mobile |
 
-**Note**: Project descriptions are `null` in source data — Anna will provide them manually before launch.
+**Note**: Project descriptions are `null` in `behance-projects.json` — Anna will provide them manually before launch.
 
 ---
 
@@ -155,47 +153,47 @@ Responsiveness is **planned from the first component**, not retrofitted. Rules:
 - **`next/image` everywhere** — Behance CDN domain added to `remotePatterns` in `next.config.ts`
 - **Framer Motion** for all animations — floating badges, page transitions, scroll reveals, hover states
 - **Space Grotesk** via `next/font/google` (self-hosted, zero layout shift)
-- **`next-themes`** for dark mode — `class` strategy, `dark:` Tailwind variants
 
 ---
 
-## Project Structure
+## Project Structure (planned)
 
 ```
 anna-portfolio-website/
 ├── CLAUDE.md
-├── AGENTS.md                          # Next.js agent rules (do not delete)
-├── behance-projects.json              # Raw Behance data (reference only)
+├── behance-projects.json          # Raw Behance data (reference)
 ├── design-system/
-│   ├── light-mode/DESIGN.md
-│   ├── light-mode/light-mode-visual.png
-│   └── dark-mode/DESIGN.md
+│   └── light-mode/
+│       ├── DESIGN.md
+│       └── light-mode-visual.png
 ├── public/
 │   └── images/
-│       ├── hero-left.png              # Placeholder (user will provide)
-│       ├── hero-right.png             # Placeholder (user will provide)
-│       └── projects/                  # Project covers
+│       ├── hero-left.png          # Placeholder (user will provide)
+│       ├── hero-right.png         # Placeholder (user will provide)
+│       └── projects/              # Project covers
 ├── src/
 │   ├── app/
-│   │   ├── layout.tsx                 # Root layout, Space Grotesk, AnimatePresence
-│   │   ├── page.tsx                   # Home
-│   │   ├── about/page.tsx
-│   │   ├── portfolio/page.tsx
+│   │   ├── layout.tsx             # Root layout, Space Grotesk, AnimatePresence
+│   │   ├── page.tsx               # Home
+│   │   ├── about/
+│   │   │   └── page.tsx
+│   │   ├── portfolio/
+│   │   │   └── page.tsx
 │   │   └── globals.css
 │   ├── components/
 │   │   ├── layout/
 │   │   │   ├── Navbar.tsx
 │   │   │   ├── Footer.tsx
 │   │   │   └── Container.tsx
-│   │   ├── ui/                        # Button, Badge, ProjectCard
-│   │   └── sections/                  # Hero, ProjectGrid, etc.
+│   │   ├── ui/                    # Primitive components (Button, Badge, Card)
+│   │   └── sections/              # Page sections (Hero, ProjectGrid, etc.)
 │   ├── data/
-│   │   └── projects.json
+│   │   └── projects.json          # Source of truth for portfolio
 │   ├── lib/
-│   │   ├── image-utils.ts
-│   │   └── utils.ts                   # cn() helper
+│   │   ├── image-utils.ts         # getBlurDataURL helper
+│   │   └── utils.ts               # cn() and shared utilities
 │   └── types/
-│       └── index.ts
+│       └── index.ts               # Project, shared types
 ├── next.config.ts
 ├── tailwind.config.ts
 └── tsconfig.json
@@ -204,6 +202,8 @@ anna-portfolio-website/
 ---
 
 ## Relevant Skills
+
+These skills are pre-loaded for this project. Reference them for patterns and decisions.
 
 ### User-created (global)
 
@@ -214,44 +214,58 @@ anna-portfolio-website/
 | `a11y-accessibility` | Every component before marking done — contrast, semantics, keyboard |
 | `nextjs-image-optimization` | Any `<Image>` usage, hero, project cards, external Behance CDN |
 
-### ECC skills (relevant)
+### ECC skills (relevant to this project)
 
 | Skill | When to use |
 |---|---|
 | `ecc:nextjs-turbopack` | Next.js build, dev server, bundler config |
 | `ecc:frontend-patterns` | Component composition, state, data fetching patterns |
 | `ecc:frontend-design` | Visual design decisions, layout, motion direction |
+| `ecc:design-system` | Translating design tokens into Tailwind config |
 | `ecc:seo` | Meta tags, Open Graph, sitemap, robots.txt |
 | `ecc:security-review` | Before any deploy — env vars, headers, no secrets in code |
 | `ecc:git-workflow` | Commit conventions, branch strategy |
+| `ecc:blueprint` | Project scaffolding, initial file setup |
 
 ---
 
 ## Relevant Agents
 
+These agents are available and calibrated for this project.
+
 ### User-created (global)
 
 | Agent | When to spawn |
 |---|---|
-| `nextjs-reviewer` | After writing/modifying any page or component — RSC vs client, metadata, next/image, routing |
-| `a11y-reviewer` | After writing/modifying any UI component — semantics, contrast, keyboard, ARIA |
-| `design-system-enforcer` | After writing/modifying any visual component — colors, no rounded corners, offset shadows, Space Grotesk |
+| `nextjs-reviewer` | After writing/modifying any `page.tsx`, `layout.tsx`, or component — checks RSC vs client boundaries, metadata, `next/image`, routing conventions |
+| `a11y-reviewer` | After writing/modifying any UI component — checks semantics, contrast against our palette, keyboard access, ARIA |
+| `design-system-enforcer` | After writing/modifying any visual component — checks colors, no rounded corners, offset shadows only, Space Grotesk only |
 
-### ECC agents (relevant)
+### ECC agents (relevant to this project)
 
 | Agent | When to spawn |
 |---|---|
-| `ecc:typescript-reviewer` | After writing any `.ts` / `.tsx` — type safety, async, React hook rules |
-| `ecc:security-reviewer` | Before any deploy |
-| `ecc:performance-optimizer` | After completing a page — Lighthouse, bundle size, image loading |
-| `ecc:e2e-runner` | Navigation flows, project card interactions |
+| `ecc:typescript-reviewer` | After writing any `.ts` / `.tsx` file — type safety, async correctness, React hook rules |
+| `ecc:code-reviewer` | General quality review — readability, patterns, dead code |
+| `ecc:security-reviewer` | Before any deploy — env vars, headers, no hardcoded secrets |
+| `ecc:performance-optimizer` | After completing a page — Lighthouse score, bundle size, image loading |
+| `ecc:e2e-runner` | Navigation flows between pages, contact form, project card interactions |
+| `ecc:refactor-cleaner` | After a feature is complete — remove dead code, consolidate duplication |
 
 ---
 
 ## Standard Review Flow (per component)
 
-Run in parallel after writing or significantly modifying a component:
+After writing or significantly modifying a component, run these agents — they can be spawned in parallel:
 
 1. `nextjs-reviewer` + `a11y-reviewer` + `design-system-enforcer` (parallel)
-2. `ecc:typescript-reviewer` (after above pass)
-3. `ecc:security-reviewer` (before deploy only)
+2. `ecc:typescript-reviewer` (sequential, after above pass)
+3. `ecc:security-reviewer` (before any deploy)
+
+---
+
+## External References
+
+- Design system visual: `design-system/light-mode/light-mode-visual.png`
+- Behance profile: https://www.behance.net/annabengaly
+- Design inspiration: NeoBrutalism — thick black borders, offset solid shadows, bold typography, no rounded corners
