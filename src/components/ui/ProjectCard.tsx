@@ -15,10 +15,25 @@ interface ProjectCardProps {
   accentColor?: "lavender" | "mint" | "pink"
 }
 
-const accentBorderMap = {
-  lavender: "border-lavender",
-  mint: "border-mint",
-  pink: "border-pink",
+// CSS variable references — guaranteed to resolve regardless of Tailwind scanning
+const accentColorVar: Record<string, string> = {
+  lavender: "var(--color-lavender)",
+  mint:     "var(--color-mint)",
+  pink:     "var(--color-pink)",
+}
+
+// Tag → background color (CSS variable). Always black text since accents are light.
+const tagColorVar: Record<string, string> = {
+  "UX Design":   "var(--color-lavender)",
+  "UI Design":   "var(--color-mint)",
+  "Research":    "var(--color-pink)",
+  "Case Study":  "var(--color-lavender)",
+  "Interface":   "var(--color-pink)",
+  "App Design":  "var(--color-pink)",
+  "Mobile App":  "var(--color-lavender)",
+  "Telemedicine":"var(--color-mint)",
+  "Ecommerce":   "var(--color-lavender)",
+  "Fitness":     "var(--color-mint)",
 }
 
 function CardContent({ project, index }: { project: Project; index?: number }) {
@@ -59,16 +74,20 @@ function CardContent({ project, index }: { project: Project; index?: number }) {
           </p>
         )}
 
-        {/* Tags */}
+        {/* Tags — color-coded by discipline */}
         <div className="flex flex-wrap gap-1.5 mb-4">
-          {project.tags.slice(0, 3).map((tag) => (
-            <span
-              key={tag}
-              className="text-xs font-medium px-2 py-0.5 border border-black dark:border-white"
-            >
-              {tag}
-            </span>
-          ))}
+          {project.tags.slice(0, 3).map((tag) => {
+            const bg = tagColorVar[tag]
+            return (
+              <span
+                key={tag}
+                className="text-xs font-bold px-2 py-0.5 border border-black"
+                style={bg ? { backgroundColor: bg, color: "#000" } : undefined}
+              >
+                {tag}
+              </span>
+            )
+          })}
         </div>
 
         {/* Link */}
@@ -105,7 +124,11 @@ export function ProjectCard({ project, index, accentColor }: ProjectCardProps) {
       )}
     >
       {accentColor ? (
-        <div className={cn("border-2", accentBorderMap[accentColor])}>
+        // Inner colored border — 3px, solid, uses CSS variable for guaranteed color
+        <div
+          className="border-[3px] border-solid"
+          style={{ borderColor: accentColorVar[accentColor] }}
+        >
           <CardContent project={project} index={index} />
         </div>
       ) : (

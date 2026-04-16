@@ -2,6 +2,7 @@
 
 import { motion, type Variants } from "framer-motion"
 import Link from "next/link"
+import Image from "next/image"
 import { Container } from "@/components/layout/Container"
 import { ProjectCard } from "@/components/ui/ProjectCard"
 import type { Project } from "@/types"
@@ -25,9 +26,13 @@ interface FeaturedWorkProps {
 
 function BehanceIcon() {
   return (
-    <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
-      <path d="M22 7h-7V5h7v2zm1.726 10c-.442 1.297-2.029 3-5.101 3-3.074 0-5.564-1.729-5.564-5.675 0-3.91 2.325-5.92 5.466-5.92 3.082 0 4.964 1.782 5.375 4.426.078.506.109 1.188.095 2.14H15.97c.13 1.202.857 1.8 2.01 1.8.7 0 1.28-.233 1.743-.699h2.003zm-4.76-4.556c-.12-1.04-.67-1.84-1.78-1.84-1.09 0-1.75.74-1.87 1.84h3.65zM6 4.5h4.5c.83 0 1.5.67 1.5 1.5s-.67 1.5-1.5 1.5H6V4.5zm0 4.5h5c.83 0 1.5.67 1.5 1.5S11.83 12 11 12H6V9zm0 4.5h5.5c.83 0 1.5.67 1.5 1.5s-.67 1.5-1.5 1.5H6v-3z"/>
-    </svg>
+    <Image
+      src="/images/icons/behance.png"
+      alt="Behance"
+      width={20}
+      height={20}
+      className="dark:invert"
+    />
   )
 }
 
