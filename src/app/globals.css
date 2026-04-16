@@ -1,0 +1,71 @@
+@import "tailwindcss";
+
+/* ─── Dark mode: class strategy (next-themes) ─────────────────────────────── */
+@variant dark (&:where(.dark, .dark *));
+
+/* ─── Design system tokens ────────────────────────────────────────────────── */
+@theme inline {
+  /* Colors */
+  --color-lavender: #d8b4fe;
+  --color-mint: #98ffd9;
+  --color-pink: #ea4c88;
+  --color-bone: #fdfcf0;
+  --color-true-dark: #121212;
+
+  /* Font */
+  --font-space-grotesk: var(--font-space-grotesk);
+
+  /* Shadows — neo-brutalist offset only, no blur */
+  --shadow-brutal-sm: 4px 4px 0px #000;
+  --shadow-brutal: 6px 6px 0px #000;
+  --shadow-brutal-lg: 8px 8px 0px #000;
+  --shadow-brutal-sm-white: 4px 4px 0px #fff;
+  --shadow-brutal-white: 6px 6px 0px #fff;
+  --shadow-brutal-lg-white: 8px 8px 0px #fff;
+
+  /* Border radius — always 0 */
+  --radius: 0px;
+}
+
+/* ─── Fluid typography ────────────────────────────────────────────────────── */
+:root {
+  --text-hero: clamp(2.75rem, 9vw, 7rem);
+  --text-heading: clamp(1.75rem, 4vw, 3rem);
+  --text-subheading: clamp(1.125rem, 2vw, 1.5rem);
+}
+
+/* ─── Base styles ─────────────────────────────────────────────────────────── */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #fdfcf0;
+  color: #000;
+  font-family: var(--font-space-grotesk), sans-serif;
+  min-height: 100dvh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.dark body {
+  background-color: #121212;
+  color: #fff;
+}
+
+/* ─── Focus visible ───────────────────────────────────────────────────────── */
+*:focus-visible {
+  outline: 2px solid #000;
+  outline-offset: 2px;
+}
+
+.dark *:focus-visible {
+  outline: 2px solid #fff;
+}
+
+/* ─── Selection ───────────────────────────────────────────────────────────── */
+::selection {
+  background-color: #d8b4fe;
+  color: #000;
+}
