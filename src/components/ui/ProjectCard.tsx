@@ -3,23 +3,27 @@
 import Image from "next/image"
 import Link from "next/link"
 import { motion } from "framer-motion"
+import { cn } from "@/lib/utils"
 import { getBlurDataURL } from "@/lib/image-utils"
 import type { Project } from "@/types"
 
 interface ProjectCardProps {
   project: Project
+  /** Index in the list — renders "01", "02", "03" in the content area */
+  index?: number
+  /** When set, wraps the card in a colored inner border (double-border effect) */
+  accentColor?: "lavender" | "mint" | "pink"
 }
 
-export function ProjectCard({ project }: ProjectCardProps) {
+const accentBorderMap = {
+  lavender: "border-lavender",
+  mint: "border-mint",
+  pink: "border-pink",
+}
+
+function CardContent({ project, index }: { project: Project; index?: number }) {
   return (
-    <motion.article
-      whileHover={{
-        x: -4,
-        y: -4,
-        transition: { duration: 0.15, ease: "easeOut" },
-      }}
-      className="border-2 border-black dark:border-white shadow-brutal-sm dark:shadow-brutal-sm-white hover:shadow-brutal dark:hover:shadow-brutal-white bg-bone dark:bg-true-dark group transition-shadow duration-150"
-    >
+    <>
       {/* Thumbnail */}
       <div className="relative aspect-[16/9] overflow-hidden border-b-2 border-black dark:border-white">
         <Image
@@ -40,7 +44,14 @@ export function ProjectCard({ project }: ProjectCardProps) {
 
       {/* Content */}
       <div className="p-4">
-        <h3 className="font-bold text-lg leading-tight mb-2">{project.title}</h3>
+        <div className="flex items-start justify-between gap-2 mb-2">
+          <h3 className="font-bold text-lg leading-tight">{project.title}</h3>
+          {index !== undefined && (
+            <span className="text-xs font-bold opacity-40 flex-shrink-0 mt-1">
+              {String(index + 1).padStart(2, "0")}
+            </span>
+          )}
+        </div>
 
         {project.description && (
           <p className="text-sm leading-relaxed mb-3 line-clamp-2">
@@ -65,13 +76,41 @@ export function ProjectCard({ project }: ProjectCardProps) {
           href={project.behance_url}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center text-xs font-bold border-b-2 border-black dark:border-white pb-0.5 hover:text-lavender hover:border-lavender transition-colors"
+          className="inline-flex items-center gap-1 text-xs font-bold border-b-2 border-black dark:border-white pb-0.5 hover:text-lavender hover:border-lavender transition-colors"
         >
           View on Behance
-          <span className="ml-1" aria-hidden="true">→</span>
-          <span className="sr-only"> (opens in new tab)</span>
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+            <line x1="7" y1="17" x2="17" y2="7" />
+            <polyline points="7,7 17,7 17,17" />
+          </svg>
+          <span className="sr-only">(opens in new tab)</span>
         </Link>
       </div>
+    </>
+  )
+}
+
+export function ProjectCard({ project, index, accentColor }: ProjectCardProps) {
+  return (
+    <motion.article
+      whileHover={{
+        x: -4,
+        y: -4,
+        transition: { duration: 0.15, ease: "easeOut" },
+      }}
+      className={cn(
+        "border-2 border-black dark:border-white bg-bone dark:bg-true-dark group",
+        "shadow-brutal-sm dark:shadow-brutal-sm-white hover:shadow-brutal dark:hover:shadow-brutal-white transition-shadow duration-150",
+        accentColor && "p-[3px]"
+      )}
+    >
+      {accentColor ? (
+        <div className={cn("border-2", accentBorderMap[accentColor])}>
+          <CardContent project={project} index={index} />
+        </div>
+      ) : (
+        <CardContent project={project} index={index} />
+      )}
     </motion.article>
   )
 }

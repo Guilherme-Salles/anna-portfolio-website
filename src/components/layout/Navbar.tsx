@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react"
 import Link from "next/link"
+import Image from "next/image"
 import { usePathname } from "next/navigation"
 import { useTheme } from "next-themes"
 import { Container } from "./Container"
@@ -43,7 +44,6 @@ function ThemeToggle() {
 
   useEffect(() => setMounted(true), [])
 
-  // Reserve space before mount to avoid layout shift
   if (!mounted) return <div className="w-9 h-9" aria-hidden="true" />
 
   const isDark = resolvedTheme === "dark"
@@ -68,16 +68,23 @@ export function Navbar() {
     <header className="border-b-2 border-black dark:border-white bg-bone dark:bg-true-dark sticky top-0 z-40">
       <Container>
         <nav
-          className="flex items-center justify-between py-4"
+          className="flex items-center justify-between py-3"
           aria-label="Main navigation"
         >
           {/* Logo */}
           <Link
             href="/"
-            className="font-bold text-lg tracking-tight leading-none"
             onClick={() => setOpen(false)}
+            aria-label="Anna Bengaly — home"
           >
-            AB<span className="text-lavender">.</span>
+            <Image
+              src="/images/anna-topbar.png"
+              alt="Anna"
+              width={369}
+              height={96}
+              priority
+              className="h-9 w-auto"
+            />
           </Link>
 
           {/* Desktop links */}
@@ -124,24 +131,9 @@ export function Navbar() {
               aria-expanded={open}
               aria-controls="mobile-menu"
             >
-              <span
-                className={cn(
-                  "block w-6 h-0.5 bg-black dark:bg-white transition-transform duration-200",
-                  open && "translate-y-2 rotate-45"
-                )}
-              />
-              <span
-                className={cn(
-                  "block w-6 h-0.5 bg-black dark:bg-white transition-opacity duration-200",
-                  open && "opacity-0"
-                )}
-              />
-              <span
-                className={cn(
-                  "block w-6 h-0.5 bg-black dark:bg-white transition-transform duration-200",
-                  open && "-translate-y-2 -rotate-45"
-                )}
-              />
+              <span className={cn("block w-6 h-0.5 bg-black dark:bg-white transition-transform duration-200", open && "translate-y-2 rotate-45")} />
+              <span className={cn("block w-6 h-0.5 bg-black dark:bg-white transition-opacity duration-200", open && "opacity-0")} />
+              <span className={cn("block w-6 h-0.5 bg-black dark:bg-white transition-transform duration-200", open && "-translate-y-2 -rotate-45")} />
             </button>
           </div>
         </nav>
@@ -150,10 +142,7 @@ export function Navbar() {
       {/* Mobile drawer */}
       <div
         id="mobile-menu"
-        className={cn(
-          "md:hidden border-t-2 border-black dark:border-white overflow-hidden transition-all duration-200",
-          open ? "max-h-64" : "max-h-0"
-        )}
+        className={cn("md:hidden border-t-2 border-black dark:border-white overflow-hidden transition-all duration-200", open ? "max-h-64" : "max-h-0")}
         aria-hidden={!open}
       >
         <Container>
@@ -162,10 +151,7 @@ export function Navbar() {
               <li key={link.href}>
                 <Link
                   href={link.href}
-                  className={cn(
-                    "block text-lg font-medium py-1",
-                    pathname === link.href ? "font-bold" : "hover:text-lavender"
-                  )}
+                  className={cn("block text-lg font-medium py-1", pathname === link.href ? "font-bold" : "hover:text-lavender")}
                   onClick={() => setOpen(false)}
                 >
                   {link.label}
