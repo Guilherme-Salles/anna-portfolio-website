@@ -119,8 +119,7 @@ export function ProjectCard({ project, index, accentColor }: ProjectCardProps) {
       }}
       className={cn(
         "border-2 border-black dark:border-white bg-bone dark:bg-true-dark group",
-        "shadow-brutal-sm dark:shadow-brutal-sm-white hover:shadow-brutal dark:hover:shadow-brutal-white transition-shadow duration-150",
-        accentColor && "p-[3px]"
+        "shadow-brutal-sm dark:shadow-brutal-sm-white hover:shadow-brutal dark:hover:shadow-brutal-white transition-shadow duration-150"
       )}
     >
       {accentColor ? (

@@ -94,7 +94,7 @@ export function FeaturedWork({ projects }: FeaturedWorkProps) {
             href="https://www.behance.net/annabengaly"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-3 px-7 py-3.5 border-2 border-black dark:border-white font-bold text-sm shadow-brutal-sm dark:shadow-brutal-sm-white hover:-translate-x-1 hover:-translate-y-1 hover:shadow-brutal dark:hover:shadow-brutal-white transition-all duration-150"
+            className="inline-flex items-center gap-3 px-7 py-3.5 bg-lavender text-black border-2 border-black font-bold text-sm shadow-brutal-sm hover:-translate-x-1 hover:-translate-y-1 hover:shadow-brutal transition-all duration-150"
           >
             see all projects
             <BehanceIcon />
