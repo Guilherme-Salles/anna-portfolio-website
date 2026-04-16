@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from "react"
 import Link from "next/link"
-import Image from "next/image"
 import { usePathname } from "next/navigation"
 import { useTheme } from "next-themes"
 import { Container } from "./Container"
@@ -77,13 +76,11 @@ export function Navbar() {
             onClick={() => setOpen(false)}
             aria-label="Anna Bengaly — home"
           >
-            <Image
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
               src="/images/anna-topbar.png"
               alt="Anna"
-              width={369}
-              height={96}
-              priority
-              className="h-9 w-auto"
+              style={{ height: "36px", width: "auto", display: "block" }}
             />
           </Link>
 
