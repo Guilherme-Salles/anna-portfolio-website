@@ -4,6 +4,7 @@ import Image from "next/image"
 import { motion, useReducedMotion } from "framer-motion"
 import { Container } from "@/components/layout/Container"
 import { Badge } from "@/components/ui/Badge"
+import { useLanguage } from "@/lib/language-context"
 
 const float = (i: number) => ({
   animate: {
@@ -19,6 +20,7 @@ const float = (i: number) => ({
 
 export function Hero() {
   const shouldReduce = useReducedMotion()
+  const { t } = useLanguage()
 
   const fadeUp = (delay: number) =>
     shouldReduce
@@ -42,7 +44,7 @@ export function Hero() {
             <motion.div {...fadeUp(0.05)}>
               <Image
                 src="/images/annaHeroText.png"
-                alt="UI/UX Product Designer"
+                alt={t.hero.imageAlt}
                 width={600}
                 height={370}
                 priority
@@ -104,8 +106,7 @@ export function Hero() {
             className="mt-10 max-w-sm text-sm leading-relaxed opacity-70"
             {...fadeUp(0.25)}
           >
-            Crafting user-centred digital experiences that scale. Based in Rio
-            de Janeiro — available for remote opportunities worldwide.
+            {t.hero.description}
           </motion.p>
 
         </div>

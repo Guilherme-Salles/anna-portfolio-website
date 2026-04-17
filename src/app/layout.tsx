@@ -4,6 +4,7 @@ import "./globals.css"
 import { Navbar } from "@/components/layout/Navbar"
 import { Footer } from "@/components/layout/Footer"
 import { SkipLink } from "@/components/layout/SkipLink"
+import { LanguageProvider } from "@/lib/language-context"
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
@@ -44,12 +45,14 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${spaceGrotesk.variable}`}>
       <body className="min-h-dvh flex flex-col antialiased">
-        <SkipLink />
-        <Navbar />
-        <main id="main-content" className="flex-1" tabIndex={-1}>
-          {children}
-        </main>
-        <Footer />
+        <LanguageProvider>
+          <SkipLink />
+          <Navbar />
+          <main id="main-content" className="flex-1" tabIndex={-1}>
+            {children}
+          </main>
+          <Footer />
+        </LanguageProvider>
       </body>
     </html>
   )

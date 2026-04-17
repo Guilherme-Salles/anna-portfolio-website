@@ -1,6 +1,9 @@
+"use client"
+
 import Image from "next/image"
 import Link from "next/link"
 import { Container } from "./Container"
+import { useLanguage } from "@/lib/language-context"
 
 const socialLinks = [
   { label: "Behance", href: "https://www.behance.net/annabengaly" },
@@ -8,6 +11,8 @@ const socialLinks = [
 ]
 
 export function Footer() {
+  const { t } = useLanguage()
+
   return (
     <footer className="border-t-2 border-black mt-auto">
       <Container>
@@ -21,7 +26,7 @@ export function Footer() {
           </div>
 
           <span className="font-bold text-sm uppercase tracking-[0.15em]">
-            UI/UX Product Designer
+            {t.footer.label}
           </span>
 
           <div className="flex items-center gap-6 flex-wrap justify-center sm:justify-end relative">
@@ -35,7 +40,7 @@ export function Footer() {
                 className="text-xs font-bold uppercase tracking-[0.15em] hover:text-lavender transition-colors"
               >
                 {link.label}
-                <span className="sr-only"> (opens in new tab)</span>
+                <span className="sr-only"> {t.footer.newTab}</span>
               </Link>
             ))}
             <span className="text-xs font-medium opacity-50">

@@ -6,6 +6,7 @@ import { motion } from "framer-motion"
 import { cn } from "@/lib/utils"
 import { getBlurDataURL } from "@/lib/image-utils"
 import type { Project } from "@/types"
+import { useLanguage } from "@/lib/language-context"
 
 interface ProjectCardProps {
   project: Project
@@ -37,13 +38,14 @@ const tagColorVar: Record<string, string> = {
 }
 
 function CardContent({ project, index }: { project: Project; index?: number }) {
+  const { t } = useLanguage()
   return (
     <>
       {/* Thumbnail */}
       <div className="relative aspect-[16/9] overflow-hidden border-b-2 border-black ">
         <Image
           src={project.cover_url}
-          alt={`${project.title} — project cover`}
+          alt={`${project.title} — ${t.projectCard.coverAlt}`}
           fill
           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
           className="object-cover transition-transform duration-500 group-hover:scale-105"
@@ -52,7 +54,7 @@ function CardContent({ project, index }: { project: Project; index?: number }) {
         />
         {project.featured && (
           <span className="absolute top-3 left-3 bg-lavender text-black text-xs font-bold px-2 py-1 border-2 border-black">
-            Featured
+            {t.projectCard.featured}
           </span>
         )}
       </div>
@@ -97,12 +99,12 @@ function CardContent({ project, index }: { project: Project; index?: number }) {
           rel="noopener noreferrer"
           className="inline-flex items-center gap-1 text-xs font-bold border-b-2 border-black  pb-0.5 hover:text-lavender hover:border-lavender transition-colors"
         >
-          View on Behance
+          {t.projectCard.viewOnBehance}
           <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
             <line x1="7" y1="17" x2="17" y2="7" />
             <polyline points="7,7 17,7 17,17" />
           </svg>
-          <span className="sr-only">(opens in new tab)</span>
+          <span className="sr-only">{t.projectCard.newTab}</span>
         </Link>
       </div>
     </>
