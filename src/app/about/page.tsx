@@ -85,7 +85,7 @@ export default function AboutPage() {
 
               {/* badge-smile: personality, floating at bottom-right of portrait */}
               <FloatingBadge
-                src="/images/badge-smile.png"
+                src="/images/badge-smile.svg"
                 size={100}
                 rotate={12}
                 floatDistance={8}
@@ -181,7 +181,7 @@ export default function AboutPage() {
 
           {/* badge-planet: worldwide/remote, free-floating — "available worldwide" context */}
           <FloatingBadge
-            src="/images/badge-planet.png"
+            src="/images/badge-planet.svg"
             size={100}
             rotate={-8}
             floatDistance={12}

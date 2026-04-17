@@ -112,7 +112,7 @@ export function Hero() {
                   animate={{ y: [0, -9, 0] }}
                   transition={{ duration: 3.3, repeat: Infinity, ease: "easeInOut" }}
                 >
-                  <Image src="/images/badge-eye.png" alt="" width={110} height={110} aria-hidden />
+                  <Image src="/images/badge-eye.svg" alt="" width={110} height={110} aria-hidden />
                 </motion.div>
               </div>
             )}

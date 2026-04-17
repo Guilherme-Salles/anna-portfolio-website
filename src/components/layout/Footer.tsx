@@ -25,7 +25,7 @@ export function Footer() {
                 transform: "rotate(18deg)",
               }}
             >
-              <Image src="/images/badge-star.png" alt="" width={64} height={64} aria-hidden />
+              <Image src="/images/badge-star.svg" alt="" width={64} height={64} aria-hidden />
             </div>
 
             {socialLinks.map((link) => (

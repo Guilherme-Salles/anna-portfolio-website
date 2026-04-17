@@ -77,7 +77,7 @@ export function ContactBanner() {
               animate={{ y: [0, -11, 0] }}
               transition={{ duration: 3.8, repeat: Infinity, ease: "easeInOut" }}
             >
-              <Image src="/images/badge-star.png" alt="" width={118} height={118} aria-hidden />
+              <Image src="/images/badge-star.svg" alt="" width={118} height={118} aria-hidden />
             </motion.div>
           </div>
         </motion.div>

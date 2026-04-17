@@ -29,7 +29,7 @@ export default function PortfolioPage() {
             </h1>
           </div>
           <FloatingBadge
-            src="/images/badge-crystal.png"
+            src="/images/badge-crystal.svg"
             size={110}
             rotate={15}
             floatDistance={10}
