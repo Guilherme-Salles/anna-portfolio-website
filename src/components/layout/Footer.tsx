@@ -11,22 +11,20 @@ export function Footer() {
   return (
     <footer className="border-t-2 border-black mt-auto">
       <Container>
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 py-6">
+        <div className="relative flex flex-col sm:flex-row items-center justify-between gap-4 py-6">
+          {/* badge-star: centered above footer row */}
+          <div
+            className="hidden sm:block absolute -top-10 left-1/2 -translate-x-1/2 z-10 pointer-events-none"
+            style={{ transform: "translateX(-50%) rotate(18deg)" }}
+          >
+            <Image src="/images/badge-star.svg" alt="" width={64} height={64} aria-hidden />
+          </div>
+
           <span className="font-bold text-sm uppercase tracking-[0.15em]">
-            Anna Bengaly
+            UI/UX Product Designer
           </span>
 
           <div className="flex items-center gap-6 flex-wrap justify-center sm:justify-end relative">
-            {/* badge-star: centered on footer border line, just left of Behance, tilted right */}
-            <div
-              className="hidden sm:block absolute -top-14 z-10 pointer-events-none"
-              style={{
-                right: "calc(100% + 0.75rem)",
-                transform: "rotate(18deg)",
-              }}
-            >
-              <Image src="/images/badge-star.svg" alt="" width={64} height={64} aria-hidden />
-            </div>
 
             {socialLinks.map((link) => (
               <Link

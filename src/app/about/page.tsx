@@ -218,33 +218,37 @@ export default function AboutPage() {
               <Image src="/images/badge-piechart.png" alt="" width={68} height={68} aria-hidden />
             </div>
 
-            <div className="relative grid grid-cols-1 md:grid-cols-3 gap-0 border-2 border-black">
-              {/* badge-apps: above and left of the grid, clear of the DESIGN header */}
-              <FloatingBadge
-                src="/images/badge-apps.png"
-                size={68}
-                rotate={-8}
-                floatDistance={8}
-                floatDuration={4.2}
-                className="hidden sm:block absolute -top-16 -left-8 z-10 pointer-events-none"
-              />
+            {/* badge-apps: below heading, left of the grid */}
+            <FloatingBadge
+              src="/images/badge-apps.png"
+              size={68}
+              rotate={-8}
+              floatDistance={8}
+              floatDuration={4.2}
+              className="hidden sm:block absolute top-20 -left-14 z-10 pointer-events-none"
+            />
 
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               {skills.map((group, i) => (
-                <div
-                  key={group.category}
-                  className={`p-6 md:p-8 ${i < skills.length - 1 ? "border-b-2 md:border-b-0 md:border-r-2 border-black" : ""}`}
-                >
-                  <h3 className="font-bold text-xs tracking-[0.2em] uppercase mb-4 text-lavender">
-                    {group.category}
-                  </h3>
-                  <ul className="space-y-2">
-                    {group.items.map((item) => (
-                      <li key={item} className="text-sm font-medium flex items-center gap-2">
-                        <span className="w-1.5 h-1.5 bg-black flex-shrink-0" aria-hidden="true" />
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
+                <div key={group.category} className="border-2 border-black shadow-brutal-sm">
+                  <div
+                    className="border-[3px] border-solid h-full"
+                    style={{ borderColor: accentBorder[accentColors[i]] }}
+                  >
+                    <div className="p-6 md:p-8">
+                      <h3 className="font-bold text-xs tracking-[0.2em] uppercase mb-4 text-lavender">
+                        {group.category}
+                      </h3>
+                      <ul className="space-y-2">
+                        {group.items.map((item) => (
+                          <li key={item} className="text-sm font-medium flex items-center gap-2">
+                            <span className="w-1.5 h-1.5 bg-black flex-shrink-0" aria-hidden="true" />
+                            {item}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
                 </div>
               ))}
             </div>
@@ -270,14 +274,14 @@ export default function AboutPage() {
           </h2>
 
           <div className="max-w-2xl relative">
-            {/* badge-planet: right next to the top of the cards */}
+            {/* badge-planet: mid-list, slightly right of cards edge */}
             <FloatingBadge
               src="/images/badge-planet.svg"
               size={96}
               rotate={-8}
               floatDistance={12}
               floatDuration={3.5}
-              className="hidden lg:block absolute top-0 -right-28 z-10 pointer-events-none"
+              className="hidden lg:block absolute top-[360px] -right-[120px] z-10 pointer-events-none"
             />
 
             {/* badge-filters: right next to the bottom of the cards */}
