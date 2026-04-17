@@ -273,25 +273,25 @@ export default function AboutPage() {
             Where I&apos;ve been.
           </h2>
 
-          <div className="max-w-2xl relative">
-            {/* badge-planet: mid-list, slightly right of cards edge */}
+          <div className="relative">
+            {/* badge-planet: mid-list, right of cards */}
             <FloatingBadge
               src="/images/badge-planet.svg"
               size={96}
               rotate={-8}
               floatDistance={12}
               floatDuration={3.5}
-              className="hidden lg:block absolute top-[360px] -right-[120px] z-10 pointer-events-none"
+              className="hidden lg:block absolute top-[360px] -right-4 z-10 pointer-events-none"
             />
 
-            {/* badge-filters: right next to the bottom of the cards */}
+            {/* badge-filters: near bottom of cards */}
             <FloatingBadge
               src="/images/badge-filters.png"
               size={80}
               rotate={8}
               floatDistance={11}
               floatDuration={3.6}
-              className="hidden lg:block absolute bottom-8 -right-24 z-10 pointer-events-none"
+              className="hidden lg:block absolute bottom-8 -right-2 z-10 pointer-events-none"
             />
 
           <div className="space-y-4">

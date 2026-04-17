@@ -32,7 +32,7 @@ export function Hero() {
   return (
     <section
       aria-label="Introduction"
-      className="relative min-h-[85vh] flex items-center border-b-2 border-black"
+      className="relative min-h-[50vh] flex items-center border-b-2 border-black"
     >
       <Container>
         <div className="flex flex-col items-center text-center py-16 md:py-24">
@@ -50,10 +50,10 @@ export function Hero() {
               />
             </motion.div>
 
-            {/* ★ — top-left */}
+            {/* ★ — top-left, scattered further out */}
             {!shouldReduce && (
               <motion.div
-                className="absolute -top-6 -left-2 z-10"
+                className="absolute -top-10 -left-6 z-10"
                 variants={float(0)}
                 animate="animate"
               >
@@ -61,10 +61,10 @@ export function Hero() {
               </motion.div>
             )}
 
-            {/* ✦ — right side, vertically centred */}
+            {/* ✦ — top-right */}
             {!shouldReduce && (
               <motion.div
-                className="absolute top-1/3 -right-5 z-10"
+                className="absolute -top-4 -right-8 z-10"
                 variants={float(1)}
                 animate="animate"
               >
@@ -72,10 +72,10 @@ export function Hero() {
               </motion.div>
             )}
 
-            {/* ✺ — bottom-right */}
+            {/* ✺ — bottom-right, scattered further */}
             {!shouldReduce && (
               <motion.div
-                className="absolute -bottom-4 right-6 z-10"
+                className="absolute -bottom-8 right-2 z-10"
                 variants={float(2)}
                 animate="animate"
               >
@@ -83,11 +83,11 @@ export function Hero() {
               </motion.div>
             )}
 
-            {/* badge-eye — left side, desktop only, clear of text below */}
+            {/* badge-eye — overlapping top-left corner of PRODUCT box (~5px overlap) */}
             {!shouldReduce && (
               <div
-                className="hidden sm:block absolute top-1/2 -translate-y-1/2 -left-20 z-10 pointer-events-none"
-                style={{ transform: "translateY(-50%) rotate(-8deg)" }}
+                className="hidden sm:block absolute top-[38px] -left-[35px] z-10 pointer-events-none"
+                style={{ transform: "rotate(-8deg)" }}
               >
                 <motion.div
                   animate={{ y: [0, -9, 0] }}
