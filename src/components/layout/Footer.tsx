@@ -8,7 +8,7 @@ const socialLinks = [
 
 export function Footer() {
   return (
-    <footer className="border-t-2 border-black dark:border-white mt-auto">
+    <footer className="border-t-2 border-black mt-auto">
       <Container>
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 py-6">
           <span className="font-bold text-sm uppercase tracking-[0.15em]">

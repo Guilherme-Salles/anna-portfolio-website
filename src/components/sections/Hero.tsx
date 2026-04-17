@@ -39,7 +39,7 @@ export function Hero() {
   return (
     <section
       aria-label="Introduction"
-      className="relative min-h-[85vh] flex items-center border-b-2 border-black dark:border-white overflow-hidden"
+      className="relative min-h-[85vh] flex items-center border-b-2 border-black overflow-hidden"
     >
       <Container>
         {/* ── Desktop: two-column split ─────────────────────────────── */}
@@ -70,7 +70,7 @@ export function Hero() {
           {/* RIGHT: rotated portrait + floating badges */}
           <div className="relative flex-shrink-0 flex items-center justify-center w-[320px] xl:w-[400px] py-8">
             <motion.div
-              className="relative w-[260px] xl:w-[320px] h-[360px] xl:h-[440px] border-2 border-black dark:border-white shadow-brutal dark:shadow-brutal-white"
+              className="relative w-[260px] xl:w-[320px] h-[360px] xl:h-[440px] border-2 border-black shadow-brutal"
               style={{ rotate: -2.5 }}
               {...(shouldReduce
                 ? {}
@@ -128,7 +128,7 @@ export function Hero() {
 
           {/* Portrait — smaller, rotated */}
           <motion.div
-            className="relative w-[200px] h-[280px] border-2 border-black dark:border-white shadow-brutal-sm dark:shadow-brutal-sm-white"
+            className="relative w-[200px] h-[280px] border-2 border-black shadow-brutal-sm"
             style={{ rotate: -2.5 }}
             {...fadeUp(0.35)}
           >

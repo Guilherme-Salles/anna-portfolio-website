@@ -20,7 +20,7 @@ export default function AboutPage() {
       {/* Hero */}
       <section
         aria-labelledby="about-heading"
-        className="border-b-2 border-black dark:border-white py-16 md:py-24"
+        className="border-b-2 border-black py-16 md:py-24"
       >
         <Container>
           <div className="max-w-2xl">
@@ -60,7 +60,7 @@ export default function AboutPage() {
       {/* Skills */}
       <section
         aria-labelledby="skills-heading"
-        className="py-16 md:py-24 border-b-2 border-black dark:border-white"
+        className="py-16 md:py-24 border-b-2 border-black"
       >
         <Container>
           <p className="text-xs font-bold tracking-[0.3em] uppercase mb-2 text-lavender">
@@ -74,11 +74,11 @@ export default function AboutPage() {
             What I do.
           </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-0 border-2 border-black dark:border-white">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-0 border-2 border-black">
             {skills.map((group, i) => (
               <div
                 key={group.category}
-                className={`p-6 md:p-8 ${i < skills.length - 1 ? "border-b-2 md:border-b-0 md:border-r-2 border-black dark:border-white" : ""}`}
+                className={`p-6 md:p-8 ${i < skills.length - 1 ? "border-b-2 md:border-b-0 md:border-r-2 border-black" : ""}`}
               >
                 <h3 className="font-bold text-xs tracking-[0.2em] uppercase mb-4 text-lavender">
                   {group.category}
@@ -86,7 +86,7 @@ export default function AboutPage() {
                 <ul className="space-y-2">
                   {group.items.map((item) => (
                     <li key={item} className="text-sm font-medium flex items-center gap-2">
-                      <span className="w-1.5 h-1.5 bg-black dark:bg-white flex-shrink-0" aria-hidden="true" />
+                      <span className="w-1.5 h-1.5 bg-black flex-shrink-0" aria-hidden="true" />
                       {item}
                     </li>
                   ))}
@@ -100,7 +100,7 @@ export default function AboutPage() {
       {/* Experience */}
       <section
         aria-labelledby="experience-heading"
-        className="py-16 md:py-24 border-b-2 border-black dark:border-white"
+        className="py-16 md:py-24 border-b-2 border-black"
       >
         <Container>
           <p className="text-xs font-bold tracking-[0.3em] uppercase mb-2 text-lavender">
@@ -114,7 +114,7 @@ export default function AboutPage() {
             Where I&apos;ve been.
           </h2>
 
-          <div className="max-w-2xl space-y-0 border-2 border-black dark:border-white divide-y-2 divide-black dark:divide-white">
+          <div className="max-w-2xl space-y-0 border-2 border-black divide-y-2 divide-black">
             <div className="p-6 md:p-8">
               <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1 mb-2">
                 <h3 className="font-bold text-base">UX/UI Designer</h3>

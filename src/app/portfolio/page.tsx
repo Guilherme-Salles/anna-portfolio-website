@@ -16,7 +16,7 @@ export default function PortfolioPage() {
       {/* Header */}
       <section
         aria-labelledby="portfolio-heading"
-        className="border-b-2 border-black dark:border-white py-16 md:py-20"
+        className="border-b-2 border-black py-16 md:py-20"
       >
         <Container>
           <p className="text-xs font-bold tracking-[0.3em] uppercase mb-4 text-lavender">

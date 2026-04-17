@@ -31,7 +31,7 @@ function BehanceIcon() {
       alt="Behance"
       width={20}
       height={20}
-      className="dark:invert"
+      className=""
     />
   )
 }
@@ -49,7 +49,7 @@ export function FeaturedWork({ projects }: FeaturedWorkProps) {
   const featured = projects.slice(0, 3)
 
   return (
-    <section aria-labelledby="featured-heading" className="py-16 md:py-24 border-b-2 border-black dark:border-white">
+    <section aria-labelledby="featured-heading" className="py-16 md:py-24 border-b-2 border-black">
       <Container>
 
         {/* ── Section header ─────────────────────────────────────────── */}
