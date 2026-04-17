@@ -68,7 +68,7 @@ export function ContactBanner() {
             </motion.div>
           </div>
 
-          {/* badge-crystal: quality/premium, overlapping top-left corner of box */}
+          {/* badge-star: excellence, overlapping top-left corner of box */}
           <div
             className="absolute -top-10 -left-8 z-10 pointer-events-none"
             style={{ transform: "rotate(-15deg)" }}
@@ -77,7 +77,7 @@ export function ContactBanner() {
               animate={{ y: [0, -11, 0] }}
               transition={{ duration: 3.8, repeat: Infinity, ease: "easeInOut" }}
             >
-              <Image src="/images/badge-crystal.png" alt="" width={118} height={118} aria-hidden />
+              <Image src="/images/badge-star.png" alt="" width={118} height={118} aria-hidden />
             </motion.div>
           </div>
         </motion.div>

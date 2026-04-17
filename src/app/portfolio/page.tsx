@@ -31,9 +31,9 @@ export default function PortfolioPage() {
             All Work.
           </h1>
 
-          {/* badge-star: excellence/featured, floating right of the heading */}
+          {/* badge-crystal: premium/quality, floating right of the heading */}
           <FloatingBadge
-            src="/images/badge-star.png"
+            src="/images/badge-crystal.png"
             size={120}
             rotate={-8}
             floatDistance={10}

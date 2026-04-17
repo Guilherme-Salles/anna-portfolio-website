@@ -19,63 +19,82 @@ const skills = [
 export default function AboutPage() {
   return (
     <>
-      {/* Hero */}
+      {/* Hero — two column on desktop */}
       <section
         aria-labelledby="about-heading"
-        className="border-b-2 border-black py-16 md:py-24 relative"
+        className="border-b-2 border-black py-16 md:py-24"
       >
         <Container>
-          <div className="max-w-2xl">
-            <p className="text-xs font-bold tracking-[0.3em] uppercase mb-4 text-lavender">
-              About
-            </p>
-            <h1
-              id="about-heading"
-              className="font-black leading-none mb-8"
-              style={{ fontSize: "var(--text-heading)" }}
-            >
-              Designing with
-              <br />
-              purpose.
-            </h1>
-            <div className="space-y-4 text-base leading-relaxed max-w-xl">
-              <p>
-                I&apos;m Anna Bengaly, a UX/UI Product Designer based in Rio de
-                Janeiro, Brazil. Currently working at Stefanini Group, I design
-                digital products that put users first — combining data, research,
-                and thoughtful design to create experiences that actually work.
+          <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-12 lg:gap-16">
+
+            {/* Left: bio text */}
+            <div>
+              <p className="text-xs font-bold tracking-[0.3em] uppercase mb-4 text-lavender">
+                About
               </p>
-              <p>
-                My process is grounded in empathy and evidence. I believe the best
-                interfaces are invisible — they guide users effortlessly toward
-                their goals without getting in the way.
-              </p>
-              <p>
-                I&apos;m available for remote full-time opportunities and open to
-                collaborate on meaningful projects worldwide.
-              </p>
+              <h1
+                id="about-heading"
+                className="font-black leading-none mb-8"
+                style={{ fontSize: "var(--text-heading)" }}
+              >
+                Designing with
+                <br />
+                purpose.
+              </h1>
+              <div className="space-y-4 text-base leading-relaxed max-w-xl">
+                <p>
+                  I&apos;m Anna Bengaly, a UX/UI Product Designer based in Rio de
+                  Janeiro, Brazil. Currently working at Stefanini Group, I design
+                  digital products that put users first — combining data, research,
+                  and thoughtful design to create experiences that actually work.
+                </p>
+                <p>
+                  My process is grounded in empathy and evidence. I believe the best
+                  interfaces are invisible — they guide users effortlessly toward
+                  their goals without getting in the way.
+                </p>
+                <p>
+                  I&apos;m available for remote full-time opportunities and open to
+                  collaborate on meaningful projects worldwide.
+                </p>
+              </div>
             </div>
+
+            {/* Right: portrait image + badges (desktop only) */}
+            <div className="hidden lg:block relative flex-shrink-0 self-center">
+              <div
+                className="relative w-[240px] h-[320px] border-2 border-black shadow-brutal"
+                style={{ transform: "rotate(2deg)" }}
+              >
+                <Image
+                  src="/images/hero-right.png"
+                  alt="Anna Bengaly"
+                  fill
+                  className="object-cover"
+                  sizes="240px"
+                />
+              </div>
+
+              {/* badge-photo: camera overlapping portrait = this is a photo section */}
+              <div
+                className="absolute -top-6 -left-6 z-20 pointer-events-none"
+                style={{ transform: "rotate(-8deg)" }}
+              >
+                <Image src="/images/badge-photo.png" alt="" width={72} height={72} aria-hidden />
+              </div>
+
+              {/* badge-smile: personality, floating at bottom-right of portrait */}
+              <FloatingBadge
+                src="/images/badge-smile.png"
+                size={100}
+                rotate={12}
+                floatDistance={8}
+                floatDuration={4}
+                className="absolute -bottom-10 -right-8 z-10 pointer-events-none"
+              />
+            </div>
+
           </div>
-
-          {/* badge-smile: personality/human, overlapping h1 area from the right */}
-          <FloatingBadge
-            src="/images/badge-smile.png"
-            size={120}
-            rotate={10}
-            floatDistance={10}
-            floatDuration={4}
-            className="hidden md:block absolute top-16 md:top-20 right-8 z-10 pointer-events-none"
-          />
-
-          {/* badge-planet: worldwide/remote, free-floating bottom-right (not overlapping text) */}
-          <FloatingBadge
-            src="/images/badge-planet.png"
-            size={108}
-            rotate={-8}
-            floatDistance={12}
-            floatDuration={3.5}
-            className="hidden lg:block absolute bottom-8 right-12 z-10 pointer-events-none"
-          />
         </Container>
       </section>
 
@@ -86,45 +105,45 @@ export default function AboutPage() {
       >
         <Container>
           <div className="relative">
-          <p className="text-xs font-bold tracking-[0.3em] uppercase mb-2 text-lavender">
-            Skills
-          </p>
-          <h2
-            id="skills-heading"
-            className="font-black leading-none mb-10"
-            style={{ fontSize: "var(--text-heading)" }}
-          >
-            What I do.
-          </h2>
+            <p className="text-xs font-bold tracking-[0.3em] uppercase mb-2 text-lavender">
+              Skills
+            </p>
+            <h2
+              id="skills-heading"
+              className="font-black leading-none mb-10"
+              style={{ fontSize: "var(--text-heading)" }}
+            >
+              What I do.
+            </h2>
 
-          {/* badge-piechart: research/data, overlapping top-right of skills grid */}
-          <div
-            className="hidden sm:block absolute top-0 right-0 z-10 pointer-events-none"
-            style={{ transform: "rotate(7deg)" }}
-          >
-            <Image src="/images/badge-piechart.png" alt="" width={68} height={68} aria-hidden />
-          </div>
+            {/* badge-piechart: research/data, overlapping top-right of skills grid */}
+            <div
+              className="hidden sm:block absolute top-0 right-0 z-10 pointer-events-none"
+              style={{ transform: "rotate(7deg)" }}
+            >
+              <Image src="/images/badge-piechart.png" alt="" width={68} height={68} aria-hidden />
+            </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-0 border-2 border-black">
-            {skills.map((group, i) => (
-              <div
-                key={group.category}
-                className={`p-6 md:p-8 ${i < skills.length - 1 ? "border-b-2 md:border-b-0 md:border-r-2 border-black" : ""}`}
-              >
-                <h3 className="font-bold text-xs tracking-[0.2em] uppercase mb-4 text-lavender">
-                  {group.category}
-                </h3>
-                <ul className="space-y-2">
-                  {group.items.map((item) => (
-                    <li key={item} className="text-sm font-medium flex items-center gap-2">
-                      <span className="w-1.5 h-1.5 bg-black flex-shrink-0" aria-hidden="true" />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-0 border-2 border-black">
+              {skills.map((group, i) => (
+                <div
+                  key={group.category}
+                  className={`p-6 md:p-8 ${i < skills.length - 1 ? "border-b-2 md:border-b-0 md:border-r-2 border-black" : ""}`}
+                >
+                  <h3 className="font-bold text-xs tracking-[0.2em] uppercase mb-4 text-lavender">
+                    {group.category}
+                  </h3>
+                  <ul className="space-y-2">
+                    {group.items.map((item) => (
+                      <li key={item} className="text-sm font-medium flex items-center gap-2">
+                        <span className="w-1.5 h-1.5 bg-black flex-shrink-0" aria-hidden="true" />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
           </div>
         </Container>
       </section>
@@ -132,7 +151,7 @@ export default function AboutPage() {
       {/* Experience */}
       <section
         aria-labelledby="experience-heading"
-        className="py-16 md:py-24 border-b-2 border-black"
+        className="py-16 md:py-24 border-b-2 border-black relative"
       >
         <Container>
           <p className="text-xs font-bold tracking-[0.3em] uppercase mb-2 text-lavender">
@@ -159,6 +178,16 @@ export default function AboutPage() {
               </p>
             </div>
           </div>
+
+          {/* badge-planet: worldwide/remote, free-floating — "available worldwide" context */}
+          <FloatingBadge
+            src="/images/badge-planet.png"
+            size={100}
+            rotate={-8}
+            floatDistance={12}
+            floatDuration={3.5}
+            className="hidden lg:block absolute top-1/2 -translate-y-1/2 right-8 z-10 pointer-events-none"
+          />
         </Container>
       </section>
 
