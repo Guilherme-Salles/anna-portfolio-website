@@ -63,7 +63,7 @@ export function FeaturedWork({ projects }: FeaturedWorkProps) {
             Works
           </h2>
 
-          <p className="hidden sm:block text-xs font-bold tracking-[0.15em] uppercase leading-relaxed max-w-[200px] text-right opacity-50 mt-2">
+          <p className="hidden sm:block text-[10px] font-bold tracking-[0.12em] uppercase leading-relaxed max-w-[160px] text-right opacity-40 mt-auto pb-1">
             [{String(featured.length).padStart(2, "0")}] Projects featuring intentional design &amp; technical precision
           </p>
         </div>
