@@ -35,10 +35,11 @@ const accentBorder: Record<string, string> = {
 const experience = [
   {
     role: "Senior UX Designer",
-    company: "Stefanini Group",
+    company: "Usiminas · via Stefanini Group",
     period: "Nov 2024",
     current: true,
     bullets: [
+      "Embedded at Usiminas, one of Brazil's largest steel companies, through Stefanini Group as consulting UX lead.",
       "Led user and stakeholder research to identify critical needs in corporate digital solutions.",
       "Planned and executed usability tests that improved interface intuitiveness and reduced development rework.",
       "Served as UX reference within product squads, ensuring alignment between user experience and business goals.",
@@ -151,15 +152,6 @@ export default function AboutPage() {
                 </p>
               </div>
 
-              {/* badge-layout: floating near bio text, desktop only */}
-              <FloatingBadge
-                src="/images/badge-layout.png"
-                size={72}
-                rotate={-10}
-                floatDistance={9}
-                floatDuration={3.8}
-                className="hidden lg:block absolute -bottom-4 left-0 z-10 pointer-events-none"
-              />
             </div>
 
             {/* Right: portrait image + badges (desktop only) */}
@@ -227,14 +219,14 @@ export default function AboutPage() {
             </div>
 
             <div className="relative grid grid-cols-1 md:grid-cols-3 gap-0 border-2 border-black">
-              {/* badge-apps: overlapping top-left corner of the skills grid */}
+              {/* badge-apps: above and left of the grid, clear of the DESIGN header */}
               <FloatingBadge
                 src="/images/badge-apps.png"
                 size={68}
                 rotate={-8}
                 floatDistance={8}
                 floatDuration={4.2}
-                className="hidden sm:block absolute -top-6 -left-5 z-10 pointer-events-none"
+                className="hidden sm:block absolute -top-16 -left-8 z-10 pointer-events-none"
               />
 
               {skills.map((group, i) => (
@@ -277,7 +269,28 @@ export default function AboutPage() {
             Where I&apos;ve been.
           </h2>
 
-          <div className="max-w-2xl space-y-4">
+          <div className="max-w-2xl relative">
+            {/* badge-planet: right next to the top of the cards */}
+            <FloatingBadge
+              src="/images/badge-planet.svg"
+              size={96}
+              rotate={-8}
+              floatDistance={12}
+              floatDuration={3.5}
+              className="hidden lg:block absolute top-0 -right-28 z-10 pointer-events-none"
+            />
+
+            {/* badge-filters: right next to the bottom of the cards */}
+            <FloatingBadge
+              src="/images/badge-filters.png"
+              size={80}
+              rotate={8}
+              floatDistance={11}
+              floatDuration={3.6}
+              className="hidden lg:block absolute bottom-8 -right-24 z-10 pointer-events-none"
+            />
+
+          <div className="space-y-4">
             {experience.map((job, i) => (
               <div key={`${job.company}-${i}`} className="border-2 border-black shadow-brutal-sm relative">
 
@@ -330,26 +343,7 @@ export default function AboutPage() {
               </div>
             ))}
           </div>
-
-          {/* badge-planet: right side near top of cards */}
-          <FloatingBadge
-            src="/images/badge-planet.svg"
-            size={96}
-            rotate={-8}
-            floatDistance={12}
-            floatDuration={3.5}
-            className="hidden lg:block absolute top-28 right-6 z-10 pointer-events-none"
-          />
-
-          {/* badge-filters: lower right, floating freely */}
-          <FloatingBadge
-            src="/images/badge-filters.png"
-            size={80}
-            rotate={8}
-            floatDistance={11}
-            floatDuration={3.6}
-            className="hidden lg:block absolute bottom-24 right-10 z-10 pointer-events-none"
-          />
+          </div>
 
         </Container>
       </section>

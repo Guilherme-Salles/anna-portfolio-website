@@ -28,14 +28,24 @@ export default function PortfolioPage() {
               All Work.
             </h1>
           </div>
-          <FloatingBadge
-            src="/images/badge-crystal.svg"
-            size={110}
-            rotate={15}
-            floatDistance={10}
-            floatDuration={3}
-            className="pointer-events-none"
-          />
+          <div className="flex items-center gap-6">
+            <FloatingBadge
+              src="/images/badge-layout.png"
+              size={72}
+              rotate={-8}
+              floatDistance={9}
+              floatDuration={4}
+              className="pointer-events-none hidden sm:block"
+            />
+            <FloatingBadge
+              src="/images/badge-crystal.svg"
+              size={110}
+              rotate={15}
+              floatDistance={10}
+              floatDuration={3}
+              className="pointer-events-none"
+            />
+          </div>
         </div>
 
         <ProjectGrid projects={projects as Project[]} />
