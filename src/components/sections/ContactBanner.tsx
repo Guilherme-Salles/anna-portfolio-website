@@ -61,15 +61,13 @@ export function ContactBanner() {
               animate={{ y: [0, -10, 0] }}
               transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
             >
-              <div className="bg-mint border-2 border-black shadow-brutal-sm p-4">
-                <Image
-                  src="/images/rocket.png"
-                  alt=""
-                  width={72}
-                  height={72}
-                  aria-hidden="true"
-                />
-              </div>
+              <Image
+                src="/images/rocket.png"
+                alt=""
+                width={96}
+                height={96}
+                aria-hidden="true"
+              />
             </motion.div>
           </div>
         </motion.div>
