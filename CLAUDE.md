@@ -131,6 +131,20 @@ Raw data scraped from Behance is in `behance-projects.json` at the repo root (re
 
 **Note**: Project descriptions are `null` in `behance-projects.json` — Anna will provide them manually before launch.
 
+### Project Card Standard
+
+**Always** render `<ProjectCard>` with both `index` and `accentColor` props — this is the canonical style across all pages:
+
+```tsx
+<ProjectCard
+  project={project}
+  index={index}
+  accentColor={accentColors[index % accentColors.length]}
+/>
+```
+
+Where `accentColors = ["mint", "lavender", "pink"] as const`. This produces the colored inner border (double-border effect) and the "01 / 02 / 03" numbering in the top-right corner. Never render cards without these props.
+
 ---
 
 ## Responsiveness

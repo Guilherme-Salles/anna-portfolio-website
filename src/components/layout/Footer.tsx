@@ -1,3 +1,4 @@
+import Image from "next/image"
 import Link from "next/link"
 import { Container } from "./Container"
 
@@ -15,7 +16,18 @@ export function Footer() {
             Anna Bengaly
           </span>
 
-          <div className="flex items-center gap-6 flex-wrap justify-center sm:justify-end">
+          <div className="flex items-center gap-6 flex-wrap justify-center sm:justify-end relative">
+            {/* badge-star: centered on footer border line, just left of Behance, tilted right */}
+            <div
+              className="hidden sm:block absolute -top-14 z-10 pointer-events-none"
+              style={{
+                right: "calc(100% + 0.75rem)",
+                transform: "rotate(18deg)",
+              }}
+            >
+              <Image src="/images/badge-star.png" alt="" width={64} height={64} aria-hidden />
+            </div>
+
             {socialLinks.map((link) => (
               <Link
                 key={link.label}

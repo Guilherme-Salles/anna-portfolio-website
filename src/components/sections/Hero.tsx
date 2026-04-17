@@ -42,10 +42,10 @@ export function Hero() {
     >
       <Container>
         {/* ── Desktop: two-column split ─────────────────────────────── */}
-        <div className="hidden lg:flex w-full items-center justify-between gap-8 xl:gap-16 py-16">
+        <div className="hidden lg:flex w-full items-start justify-between gap-8 xl:gap-16 py-16">
 
-          {/* LEFT: graphic title + description + badge-pencil */}
-          <div className="flex-1 flex flex-col justify-center min-w-0">
+          {/* LEFT: graphic title + description */}
+          <div className="flex-1 flex flex-col min-w-0">
             <motion.div {...fadeUp(0.05)}>
               <Image
                 src="/images/annaHeroText.png"
@@ -64,22 +64,10 @@ export function Hero() {
               Crafting user-centred digital experiences that scale. Based in Rio
               de Janeiro — available for remote opportunities worldwide.
             </motion.p>
-
-            {/* badge-pencil: design/creation, free-floating below description */}
-            {!shouldReduce && (
-              <motion.div
-                className="mt-8 self-start pointer-events-none"
-                animate={{ y: [0, -10, 0] }}
-                transition={{ duration: 2.8, repeat: Infinity, ease: "easeInOut" }}
-                style={{ rotate: 8 }}
-              >
-                <Image src="/images/badge-pencil.png" alt="" width={110} height={110} aria-hidden />
-              </motion.div>
-            )}
           </div>
 
           {/* RIGHT: rotated portrait + floating badges */}
-          <div className="relative flex-shrink-0 flex items-center justify-center w-[320px] xl:w-[400px] py-8">
+          <div className="relative flex-shrink-0 flex items-center justify-center w-[320px] xl:w-[400px]">
             <motion.div
               className="relative w-[260px] xl:w-[320px] h-[360px] xl:h-[440px] border-2 border-black shadow-brutal"
               style={{ rotate: -2.5 }}
@@ -167,17 +155,6 @@ export function Hero() {
             />
           </motion.div>
 
-          {/* badge-pencil: free-floating below portrait on mobile */}
-          {!shouldReduce && (
-            <motion.div
-              className="self-start pointer-events-none"
-              animate={{ y: [0, -8, 0] }}
-              transition={{ duration: 2.8, repeat: Infinity, ease: "easeInOut" }}
-              style={{ rotate: 8 }}
-            >
-              <Image src="/images/badge-pencil.png" alt="" width={88} height={88} aria-hidden />
-            </motion.div>
-          )}
         </div>
       </Container>
     </section>

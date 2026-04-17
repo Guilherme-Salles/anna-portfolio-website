@@ -13,42 +13,33 @@ export const metadata: Metadata = {
 
 export default function PortfolioPage() {
   return (
-    <>
-      {/* Header */}
-      <section
-        aria-labelledby="portfolio-heading"
-        className="border-b-2 border-black py-16 md:py-20 relative"
-      >
-        <Container>
-          <p className="text-xs font-bold tracking-[0.3em] uppercase mb-4 text-lavender">
-            Portfolio
-          </p>
-          <h1
-            id="portfolio-heading"
-            className="font-black leading-none"
-            style={{ fontSize: "var(--text-heading)" }}
-          >
-            All Work.
-          </h1>
-
-          {/* badge-crystal: premium/quality, floating right of the heading */}
+    <section aria-labelledby="portfolio-heading" className="py-16 md:py-24">
+      <Container>
+        <div className="flex items-center justify-between mb-12">
+          <div>
+            <p className="text-xs font-bold tracking-[0.3em] uppercase mb-4 text-lavender">
+              Portfolio
+            </p>
+            <h1
+              id="portfolio-heading"
+              className="font-black leading-none"
+              style={{ fontSize: "var(--text-heading)" }}
+            >
+              All Work.
+            </h1>
+          </div>
           <FloatingBadge
             src="/images/badge-crystal.png"
-            size={120}
-            rotate={-8}
+            size={110}
+            rotate={15}
             floatDistance={10}
             floatDuration={3}
-            className="hidden md:block absolute top-1/2 -translate-y-1/2 right-8 z-10 pointer-events-none"
+            className="pointer-events-none"
           />
-        </Container>
-      </section>
+        </div>
 
-      {/* Project grid */}
-      <section aria-label="Projects" className="py-16 md:py-24">
-        <Container>
-          <ProjectGrid projects={projects as Project[]} />
-        </Container>
-      </section>
-    </>
+        <ProjectGrid projects={projects as Project[]} />
+      </Container>
+    </section>
   )
 }
