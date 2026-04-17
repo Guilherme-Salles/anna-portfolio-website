@@ -56,8 +56,7 @@ export function FeaturedWork({ projects }: FeaturedWorkProps) {
         <div className="flex items-start justify-between gap-8 mb-12">
           <h2
             id="featured-heading"
-            className="font-black leading-none uppercase"
-            style={{ fontSize: "var(--text-hero)" }}
+            className="font-black leading-none uppercase text-5xl md:text-6xl"
           >
             Selected
             <br />
