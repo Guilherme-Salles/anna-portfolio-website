@@ -4,9 +4,13 @@ import { useState } from "react"
 import { motion } from "framer-motion"
 import Image from "next/image"
 import { Container } from "@/components/layout/Container"
+import { useLanguage } from "@/lib/language-context"
 
 export function ContactBanner() {
   const [email, setEmail] = useState("")
+  const { t } = useLanguage()
+
+  const headingLines = t.contact.heading.split("\n")
 
   return (
     <section aria-labelledby="contact-heading" className="bg-bone py-16 md:py-20 pb-28 md:pb-32">
@@ -24,13 +28,13 @@ export function ContactBanner() {
               id="contact-heading"
               className="font-black uppercase leading-none text-black text-5xl md:text-6xl lg:text-7xl mb-5"
             >
-              Want to
+              {headingLines[0]}
               <br />
-              work together?
+              {headingLines[1]}
             </h2>
 
             <p className="text-sm font-medium text-black/60 max-w-md mb-8 leading-relaxed">
-              Drop your email below or reach out directly to discuss your next big digital project.
+              {t.contact.description}
             </p>
 
             {/* ── Email form ───────────────────────────────────────────── */}
@@ -39,15 +43,15 @@ export function ContactBanner() {
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                placeholder="YOUR EMAIL ADDRESS"
-                aria-label="Your email address"
+                placeholder={t.contact.placeholder}
+                aria-label={t.contact.inputLabel}
                 className="flex-1 px-5 py-4 bg-white border-2 border-black text-xs font-bold tracking-[0.15em] uppercase placeholder:text-black/30 outline-none focus:bg-bone transition-colors"
               />
               <a
-                href={`mailto:anna@example.com${email ? `?body=My%20email%20is%20${encodeURIComponent(email)}` : ""}`}
+                href={`mailto:bengalyannaluisa@gmail.com${email ? `?subject=Let%27s%20work%20together&body=My%20email%20is%20${encodeURIComponent(email)}` : ""}`}
                 className="px-10 py-4 bg-black text-white font-bold text-xs tracking-[0.15em] uppercase border-2 border-black sm:border-l-0 border-t-0 sm:border-t-2 hover:bg-lavender hover:text-black transition-colors duration-150 text-center shrink-0"
               >
-                Send
+                {t.contact.send}
               </a>
             </div>
           </div>
@@ -68,18 +72,6 @@ export function ContactBanner() {
             </motion.div>
           </div>
 
-          {/* badge-star: excellence, overlapping top-left corner of box */}
-          <div
-            className="absolute -top-10 -left-8 z-10 pointer-events-none"
-            style={{ transform: "rotate(-15deg)" }}
-          >
-            <motion.div
-              animate={{ y: [0, -11, 0] }}
-              transition={{ duration: 3.8, repeat: Infinity, ease: "easeInOut" }}
-            >
-              <Image src="/images/badge-star.svg" alt="" width={118} height={118} aria-hidden />
-            </motion.div>
-          </div>
         </motion.div>
       </Container>
     </section>

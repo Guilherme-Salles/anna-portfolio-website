@@ -29,7 +29,7 @@ export function ProjectGrid({ projects }: ProjectGridProps) {
       animate="visible"
     >
       {projects.map((project, index) => (
-        <motion.div key={project.id} variants={itemVariants}>
+        <motion.div key={project.id} variants={itemVariants} className="h-full">
           <ProjectCard
             project={project}
             index={index}

@@ -6,6 +6,7 @@ import Image from "next/image"
 import { Container } from "@/components/layout/Container"
 import { ProjectCard } from "@/components/ui/ProjectCard"
 import type { Project } from "@/types"
+import { useLanguage } from "@/lib/language-context"
 
 const containerVariants: Variants = {
   hidden: {},
@@ -47,6 +48,7 @@ function ExternalArrow() {
 
 export function FeaturedWork({ projects }: FeaturedWorkProps) {
   const featured = projects.slice(0, 3)
+  const { t } = useLanguage()
 
   return (
     <section aria-labelledby="featured-heading" className="py-16 md:py-24 border-b-2 border-black">
@@ -58,17 +60,17 @@ export function FeaturedWork({ projects }: FeaturedWorkProps) {
             id="featured-heading"
             className="font-black leading-none uppercase text-5xl md:text-6xl"
           >
-            Selected
+            {t.featuredWork.heading1}
             <br />
             {/* badge-analytics sits inline right after WORKS — no rotation, rectangular shape */}
             <span className="inline-flex items-center gap-1">
-              Works
+              {t.featuredWork.heading2}
               <Image src="/images/badge-analytics.png" alt="" width={64} height={64} aria-hidden className="pointer-events-none" />
             </span>
           </h2>
 
           <p className="hidden sm:block text-[10px] font-bold tracking-[0.12em] uppercase leading-relaxed max-w-[160px] text-right opacity-40">
-            [{String(featured.length).padStart(2, "0")}] Projects featuring intentional design &amp; technical precision
+            [{String(featured.length).padStart(2, "0")}] {t.featuredWork.statsText}
           </p>
         </div>
 
@@ -81,7 +83,7 @@ export function FeaturedWork({ projects }: FeaturedWorkProps) {
           viewport={{ once: true, margin: "-80px" }}
         >
           {featured.map((project, i) => (
-            <motion.div key={project.id} variants={itemVariants}>
+            <motion.div key={project.id} variants={itemVariants} className="h-full">
               <ProjectCard
                 project={project}
                 index={i}
@@ -99,10 +101,10 @@ export function FeaturedWork({ projects }: FeaturedWorkProps) {
             rel="noopener noreferrer"
             className="inline-flex items-center gap-3 px-7 py-3.5 bg-lavender text-black border-2 border-black font-bold text-sm shadow-brutal-sm hover:-translate-x-1 hover:-translate-y-1 hover:shadow-brutal transition-all duration-150"
           >
-            see all projects
+            {t.featuredWork.seeAll}
             <BehanceIcon />
             <ExternalArrow />
-            <span className="sr-only">(opens Behance in new tab)</span>
+            <span className="sr-only">{t.featuredWork.seeAllSr}</span>
           </Link>
         </div>
 
