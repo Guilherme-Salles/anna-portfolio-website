@@ -171,6 +171,14 @@ const en = {
     label: "Portfolio",
     heading: "All Work.",
   },
+  projectDescriptions: {
+    "nutri-track": "All-in-one fitness and nutrition app to track meals, workouts, and health goals.",
+    "conecta-eventos": "Event management app connecting users to discover, organize, and attend events.",
+    "smart-home": "Smart home app to control devices, automate routines, and monitor home systems.",
+    "paisagismo-digital": "Digital landscaping platform to design, visualize, and plan outdoor spaces.",
+    "virtual-med": "Telemedicine app enabling remote consultations, patient monitoring, and health tracking.",
+    "fashi-on": "Fashion app for discovering trends, browsing outfits, and personalized styling.",
+  },
 }
 
 const pt: typeof en = {
@@ -343,6 +351,14 @@ const pt: typeof en = {
   portfolio: {
     label: "Portfólio",
     heading: "Todos os Trabalhos.",
+  },
+  projectDescriptions: {
+    "nutri-track": "Aplicativo all-in-one de fitness e nutrição para registrar refeições, treinos e metas de saúde.",
+    "conecta-eventos": "Aplicativo de gestão de eventos que conecta usuários a descobrir, organizar e participar de eventos.",
+    "smart-home": "Aplicativo de casa inteligente para controlar dispositivos, automatizar rotinas e monitorar sistemas residenciais.",
+    "paisagismo-digital": "Plataforma de paisagismo digital para projetar, visualizar e planejar espaços externos.",
+    "virtual-med": "Aplicativo de telemedicina para consultas remotas, monitoramento de pacientes e acompanhamento de saúde.",
+    "fashi-on": "Aplicativo de moda para descobrir tendências, explorar looks e receber sugestões de estilo personalizadas.",
   },
 }
 

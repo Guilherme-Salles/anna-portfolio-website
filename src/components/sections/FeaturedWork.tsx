@@ -83,7 +83,7 @@ export function FeaturedWork({ projects }: FeaturedWorkProps) {
           viewport={{ once: true, margin: "-80px" }}
         >
           {featured.map((project, i) => (
-            <motion.div key={project.id} variants={itemVariants}>
+            <motion.div key={project.id} variants={itemVariants} className="h-full">
               <ProjectCard
                 project={project}
                 index={i}
