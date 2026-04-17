@@ -52,22 +52,32 @@ export function ContactBanner() {
             </div>
           </div>
 
-          {/* ── Rocket floating badge ────────────────────────────────────
-               Outer div: CSS translate-y-1/2 anchors it to the bottom border.
-               Inner motion.div: float animation doesn't conflict with CSS transform.
-          ──────────────────────────────────────────────────────────────── */}
+          {/* badge-rocket: top-right */}
           <div className="absolute -top-12 right-10 md:right-14 z-10">
             <motion.div
               animate={{ y: [0, -10, 0] }}
               transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
             >
               <Image
-                src="/images/rocket.png"
+                src="/images/badge-rocket.png"
                 alt=""
                 width={148}
                 height={148}
                 aria-hidden="true"
               />
+            </motion.div>
+          </div>
+
+          {/* badge-crystal: quality/premium, overlapping top-left corner of box */}
+          <div
+            className="absolute -top-10 -left-8 z-10 pointer-events-none"
+            style={{ transform: "rotate(-15deg)" }}
+          >
+            <motion.div
+              animate={{ y: [0, -11, 0] }}
+              transition={{ duration: 3.8, repeat: Infinity, ease: "easeInOut" }}
+            >
+              <Image src="/images/badge-crystal.png" alt="" width={118} height={118} aria-hidden />
             </motion.div>
           </div>
         </motion.div>

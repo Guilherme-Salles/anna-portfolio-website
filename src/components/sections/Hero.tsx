@@ -5,7 +5,6 @@ import { motion, useReducedMotion } from "framer-motion"
 import { Container } from "@/components/layout/Container"
 import { Badge } from "@/components/ui/Badge"
 
-// Decorative badges anchored around the portrait photo
 const photoBadges = [
   { label: "★", color: "mint" as const, rotate: 12, pos: "absolute -top-5 left-6 z-10" },
   { label: "✦", color: "lavender" as const, rotate: -7, pos: "absolute top-1/3 -right-6 z-10" },
@@ -47,19 +46,38 @@ export function Hero() {
 
           {/* LEFT: graphic title + description */}
           <div className="flex-1 flex flex-col justify-center min-w-0">
-            <motion.div {...fadeUp(0.05)}>
-              <Image
-                src="/images/annaHeroText.png"
-                alt="UI/UX Product Designer"
-                width={600}
-                height={370}
-                priority
-                className="w-full max-w-[560px] h-auto"
-              />
-            </motion.div>
+
+            {/* Title image — badge-pencil overlaps its bottom-right corner */}
+            <div className="relative">
+              <motion.div {...fadeUp(0.05)}>
+                <Image
+                  src="/images/annaHeroText.png"
+                  alt="UI/UX Product Designer"
+                  width={600}
+                  height={370}
+                  priority
+                  className="w-full max-w-[560px] h-auto"
+                />
+              </motion.div>
+
+              {/* badge-pencil: design/creation, tilted at bottom-right of title */}
+              {!shouldReduce && (
+                <div
+                  className="absolute -bottom-6 right-2 z-10 pointer-events-none"
+                  style={{ transform: "rotate(12deg)" }}
+                >
+                  <motion.div
+                    animate={{ y: [0, -10, 0] }}
+                    transition={{ duration: 2.8, repeat: Infinity, ease: "easeInOut" }}
+                  >
+                    <Image src="/images/badge-pencil.png" alt="" width={110} height={110} aria-hidden />
+                  </motion.div>
+                </div>
+              )}
+            </div>
 
             <motion.p
-              className="mt-6 max-w-sm text-sm leading-relaxed opacity-70"
+              className="mt-12 max-w-sm text-sm leading-relaxed opacity-70"
               {...fadeUp(0.25)}
             >
               Crafting user-centred digital experiences that scale. Based in Rio
@@ -90,7 +108,7 @@ export function Hero() {
               />
             </motion.div>
 
-            {/* Floating badges */}
+            {/* Text emoji badges */}
             {!shouldReduce &&
               photoBadges.map((badge, i) => (
                 <motion.div
@@ -102,44 +120,92 @@ export function Hero() {
                   <Badge label={badge.label} color={badge.color} rotate={badge.rotate} />
                 </motion.div>
               ))}
+
+            {/* badge-photo: camera = this is a portrait photo */}
+            <div
+              className="absolute top-4 left-4 z-20 pointer-events-none"
+              style={{ transform: "rotate(-10deg)" }}
+            >
+              <Image src="/images/badge-photo.png" alt="" width={68} height={68} aria-hidden />
+            </div>
+
+            {/* badge-eye: UX observation/vision, floating at bottom-left of portrait */}
+            {!shouldReduce && (
+              <div
+                className="absolute bottom-0 left-0 z-10 pointer-events-none"
+                style={{ transform: "rotate(-8deg)" }}
+              >
+                <motion.div
+                  animate={{ y: [0, -9, 0] }}
+                  transition={{ duration: 3.3, repeat: Infinity, ease: "easeInOut" }}
+                >
+                  <Image src="/images/badge-eye.png" alt="" width={110} height={110} aria-hidden />
+                </motion.div>
+              </div>
+            )}
           </div>
         </div>
 
         {/* ── Mobile: stacked ────────────────────────────────────────── */}
         <div className="lg:hidden flex flex-col items-center py-12 gap-6">
-          <motion.div className="w-full" {...fadeUp(0.05)}>
-            <Image
-              src="/images/annaHeroText.png"
-              alt="UI/UX Product Designer"
-              width={600}
-              height={370}
-              priority
-              className="w-full h-auto"
-            />
-          </motion.div>
+
+          {/* Title image with badge-pencil */}
+          <div className="w-full relative">
+            <motion.div {...fadeUp(0.05)}>
+              <Image
+                src="/images/annaHeroText.png"
+                alt="UI/UX Product Designer"
+                width={600}
+                height={370}
+                priority
+                className="w-full h-auto"
+              />
+            </motion.div>
+            {!shouldReduce && (
+              <div
+                className="absolute -bottom-6 right-0 z-10 pointer-events-none"
+                style={{ transform: "rotate(10deg)" }}
+              >
+                <motion.div
+                  animate={{ y: [0, -8, 0] }}
+                  transition={{ duration: 2.8, repeat: Infinity, ease: "easeInOut" }}
+                >
+                  <Image src="/images/badge-pencil.png" alt="" width={88} height={88} aria-hidden />
+                </motion.div>
+              </div>
+            )}
+          </div>
 
           <motion.p
-            className="max-w-xs text-sm leading-relaxed opacity-70 text-center"
+            className="max-w-xs text-sm leading-relaxed opacity-70 text-center mt-4"
             {...fadeUp(0.2)}
           >
             Crafting user-centred digital experiences that scale. Based in Rio
             de Janeiro — available for remote opportunities worldwide.
           </motion.p>
 
-          {/* Portrait — smaller, rotated */}
-          <motion.div
-            className="relative w-[200px] h-[280px] border-2 border-black shadow-brutal-sm"
-            style={{ rotate: -2.5 }}
-            {...fadeUp(0.35)}
-          >
-            <Image
-              src="/images/hero-right.png"
-              alt=""
-              fill
-              className="object-cover"
-              sizes="200px"
-            />
-          </motion.div>
+          {/* Portrait with badge-photo overlapping top-left corner */}
+          <div className="relative">
+            <motion.div
+              className="relative w-[200px] h-[280px] border-2 border-black shadow-brutal-sm"
+              style={{ rotate: -2.5 }}
+              {...fadeUp(0.35)}
+            >
+              <Image
+                src="/images/hero-right.png"
+                alt=""
+                fill
+                className="object-cover"
+                sizes="200px"
+              />
+            </motion.div>
+            <div
+              className="absolute -top-5 -left-4 z-20 pointer-events-none"
+              style={{ transform: "rotate(-10deg)" }}
+            >
+              <Image src="/images/badge-photo.png" alt="" width={56} height={56} aria-hidden />
+            </div>
+          </div>
         </div>
       </Container>
     </section>

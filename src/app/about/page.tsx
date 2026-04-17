@@ -1,6 +1,8 @@
 import type { Metadata } from "next"
+import Image from "next/image"
 import { Container } from "@/components/layout/Container"
 import { ContactBanner } from "@/components/sections/ContactBanner"
+import { FloatingBadge } from "@/components/ui/FloatingBadge"
 
 export const metadata: Metadata = {
   title: "About",
@@ -20,7 +22,7 @@ export default function AboutPage() {
       {/* Hero */}
       <section
         aria-labelledby="about-heading"
-        className="border-b-2 border-black py-16 md:py-24"
+        className="border-b-2 border-black py-16 md:py-24 relative"
       >
         <Container>
           <div className="max-w-2xl">
@@ -54,6 +56,26 @@ export default function AboutPage() {
               </p>
             </div>
           </div>
+
+          {/* badge-smile: personality/human, overlapping h1 area from the right */}
+          <FloatingBadge
+            src="/images/badge-smile.png"
+            size={120}
+            rotate={10}
+            floatDistance={10}
+            floatDuration={4}
+            className="hidden md:block absolute top-16 md:top-20 right-8 z-10 pointer-events-none"
+          />
+
+          {/* badge-planet: worldwide/remote, free-floating bottom-right (not overlapping text) */}
+          <FloatingBadge
+            src="/images/badge-planet.png"
+            size={108}
+            rotate={-8}
+            floatDistance={12}
+            floatDuration={3.5}
+            className="hidden lg:block absolute bottom-8 right-12 z-10 pointer-events-none"
+          />
         </Container>
       </section>
 
@@ -63,6 +85,7 @@ export default function AboutPage() {
         className="py-16 md:py-24 border-b-2 border-black"
       >
         <Container>
+          <div className="relative">
           <p className="text-xs font-bold tracking-[0.3em] uppercase mb-2 text-lavender">
             Skills
           </p>
@@ -73,6 +96,14 @@ export default function AboutPage() {
           >
             What I do.
           </h2>
+
+          {/* badge-piechart: research/data, overlapping top-right of skills grid */}
+          <div
+            className="hidden sm:block absolute top-0 right-0 z-10 pointer-events-none"
+            style={{ transform: "rotate(7deg)" }}
+          >
+            <Image src="/images/badge-piechart.png" alt="" width={68} height={68} aria-hidden />
+          </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-0 border-2 border-black">
             {skills.map((group, i) => (
@@ -93,6 +124,7 @@ export default function AboutPage() {
                 </ul>
               </div>
             ))}
+          </div>
           </div>
         </Container>
       </section>
