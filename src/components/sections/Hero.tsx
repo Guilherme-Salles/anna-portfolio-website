@@ -80,11 +80,11 @@ export function Hero() {
                   })}
             >
               <Image
-                src="/images/hero-right.png"
+                src="/images/hero-profile.png"
                 alt=""
                 fill
                 priority
-                className="object-cover"
+                className="object-cover object-top"
                 sizes="(max-width: 1280px) 260px, 320px"
               />
             </motion.div>
@@ -147,10 +147,10 @@ export function Hero() {
             {...fadeUp(0.35)}
           >
             <Image
-              src="/images/hero-right.png"
+              src="/images/hero-profile.png"
               alt=""
               fill
-              className="object-cover"
+              className="object-cover object-top"
               sizes="200px"
             />
           </motion.div>
