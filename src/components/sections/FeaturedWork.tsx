@@ -53,7 +53,7 @@ export function FeaturedWork({ projects }: FeaturedWorkProps) {
       <Container>
 
         {/* ── Section header ─────────────────────────────────────────── */}
-        <div className="flex items-start justify-between gap-8 mb-12">
+        <div className="flex items-end justify-between gap-8 mb-12">
           <h2
             id="featured-heading"
             className="font-black leading-none uppercase text-5xl md:text-6xl"
@@ -63,7 +63,7 @@ export function FeaturedWork({ projects }: FeaturedWorkProps) {
             Works
           </h2>
 
-          <p className="hidden sm:block text-[10px] font-bold tracking-[0.12em] uppercase leading-relaxed max-w-[160px] text-right opacity-40 mt-auto pb-1">
+          <p className="hidden sm:block text-[10px] font-bold tracking-[0.12em] uppercase leading-relaxed max-w-[160px] text-right opacity-40">
             [{String(featured.length).padStart(2, "0")}] Projects featuring intentional design &amp; technical precision
           </p>
         </div>
