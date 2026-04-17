@@ -5,7 +5,6 @@ import { motion, useReducedMotion } from "framer-motion"
 import { Container } from "@/components/layout/Container"
 import { Badge } from "@/components/ui/Badge"
 
-// Decorative badges anchored around the portrait photo
 const photoBadges = [
   { label: "★", color: "mint" as const, rotate: 12, pos: "absolute -top-5 left-6 z-10" },
   { label: "✦", color: "lavender" as const, rotate: -7, pos: "absolute top-1/3 -right-6 z-10" },
@@ -39,14 +38,14 @@ export function Hero() {
   return (
     <section
       aria-label="Introduction"
-      className="relative min-h-[85vh] flex items-center border-b-2 border-black dark:border-white overflow-hidden"
+      className="relative min-h-[85vh] flex items-center border-b-2 border-black overflow-hidden"
     >
       <Container>
         {/* ── Desktop: two-column split ─────────────────────────────── */}
-        <div className="hidden lg:flex w-full items-center justify-between gap-8 xl:gap-16 py-16">
+        <div className="hidden lg:flex w-full items-start justify-between gap-8 xl:gap-16 py-16">
 
           {/* LEFT: graphic title + description */}
-          <div className="flex-1 flex flex-col justify-center min-w-0">
+          <div className="flex-1 flex flex-col min-w-0">
             <motion.div {...fadeUp(0.05)}>
               <Image
                 src="/images/annaHeroText.png"
@@ -68,9 +67,9 @@ export function Hero() {
           </div>
 
           {/* RIGHT: rotated portrait + floating badges */}
-          <div className="relative flex-shrink-0 flex items-center justify-center w-[320px] xl:w-[400px] py-8">
+          <div className="relative flex-shrink-0 flex items-center justify-center w-[320px] xl:w-[400px]">
             <motion.div
-              className="relative w-[260px] xl:w-[320px] h-[360px] xl:h-[440px] border-2 border-black dark:border-white shadow-brutal dark:shadow-brutal-white"
+              className="relative w-[260px] xl:w-[320px] h-[360px] xl:h-[440px] border-2 border-black shadow-brutal"
               style={{ rotate: -2.5 }}
               {...(shouldReduce
                 ? {}
@@ -81,16 +80,16 @@ export function Hero() {
                   })}
             >
               <Image
-                src="/images/hero-right.png"
+                src="/images/hero-profile.png"
                 alt=""
                 fill
                 priority
-                className="object-cover"
+                className="object-cover object-top"
                 sizes="(max-width: 1280px) 260px, 320px"
               />
             </motion.div>
 
-            {/* Floating badges */}
+            {/* Text emoji badges */}
             {!shouldReduce &&
               photoBadges.map((badge, i) => (
                 <motion.div
@@ -102,6 +101,21 @@ export function Hero() {
                   <Badge label={badge.label} color={badge.color} rotate={badge.rotate} />
                 </motion.div>
               ))}
+
+            {/* badge-eye: UX observation/vision, floating at bottom-left of portrait */}
+            {!shouldReduce && (
+              <div
+                className="absolute bottom-0 left-0 z-10 pointer-events-none"
+                style={{ transform: "rotate(-8deg)" }}
+              >
+                <motion.div
+                  animate={{ y: [0, -9, 0] }}
+                  transition={{ duration: 3.3, repeat: Infinity, ease: "easeInOut" }}
+                >
+                  <Image src="/images/badge-eye.svg" alt="" width={110} height={110} aria-hidden />
+                </motion.div>
+              </div>
+            )}
           </div>
         </div>
 
@@ -126,20 +140,21 @@ export function Hero() {
             de Janeiro — available for remote opportunities worldwide.
           </motion.p>
 
-          {/* Portrait — smaller, rotated */}
+          {/* Portrait */}
           <motion.div
-            className="relative w-[200px] h-[280px] border-2 border-black dark:border-white shadow-brutal-sm dark:shadow-brutal-sm-white"
+            className="relative w-[200px] h-[280px] border-2 border-black shadow-brutal-sm"
             style={{ rotate: -2.5 }}
             {...fadeUp(0.35)}
           >
             <Image
-              src="/images/hero-right.png"
+              src="/images/hero-profile.png"
               alt=""
               fill
-              className="object-cover"
+              className="object-cover object-top"
               sizes="200px"
             />
           </motion.div>
+
         </div>
       </Container>
     </section>

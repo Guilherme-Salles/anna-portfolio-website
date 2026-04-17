@@ -31,7 +31,7 @@ function BehanceIcon() {
       alt="Behance"
       width={20}
       height={20}
-      className="dark:invert"
+      className=""
     />
   )
 }
@@ -49,7 +49,7 @@ export function FeaturedWork({ projects }: FeaturedWorkProps) {
   const featured = projects.slice(0, 3)
 
   return (
-    <section aria-labelledby="featured-heading" className="py-16 md:py-24 border-b-2 border-black dark:border-white">
+    <section aria-labelledby="featured-heading" className="py-16 md:py-24 border-b-2 border-black">
       <Container>
 
         {/* ── Section header ─────────────────────────────────────────── */}
@@ -60,7 +60,11 @@ export function FeaturedWork({ projects }: FeaturedWorkProps) {
           >
             Selected
             <br />
-            Works
+            {/* badge-analytics sits inline right after WORKS — no rotation, rectangular shape */}
+            <span className="inline-flex items-center gap-1">
+              Works
+              <Image src="/images/badge-analytics.png" alt="" width={64} height={64} aria-hidden className="pointer-events-none" />
+            </span>
           </h2>
 
           <p className="hidden sm:block text-[10px] font-bold tracking-[0.12em] uppercase leading-relaxed max-w-[160px] text-right opacity-40">

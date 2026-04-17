@@ -40,7 +40,7 @@ function CardContent({ project, index }: { project: Project; index?: number }) {
   return (
     <>
       {/* Thumbnail */}
-      <div className="relative aspect-[16/9] overflow-hidden border-b-2 border-black dark:border-white">
+      <div className="relative aspect-[16/9] overflow-hidden border-b-2 border-black ">
         <Image
           src={project.cover_url}
           alt={`${project.title} — project cover`}
@@ -95,7 +95,7 @@ function CardContent({ project, index }: { project: Project; index?: number }) {
           href={project.behance_url}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-1 text-xs font-bold border-b-2 border-black dark:border-white pb-0.5 hover:text-lavender hover:border-lavender transition-colors"
+          className="inline-flex items-center gap-1 text-xs font-bold border-b-2 border-black  pb-0.5 hover:text-lavender hover:border-lavender transition-colors"
         >
           View on Behance
           <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -118,8 +118,8 @@ export function ProjectCard({ project, index, accentColor }: ProjectCardProps) {
         transition: { duration: 0.15, ease: "easeOut" },
       }}
       className={cn(
-        "border-2 border-black dark:border-white bg-bone dark:bg-true-dark group",
-        "shadow-brutal-sm dark:shadow-brutal-sm-white hover:shadow-brutal dark:hover:shadow-brutal-white transition-shadow duration-150"
+        "border-2 border-black  bg-bone group",
+        "shadow-brutal-sm hover:shadow-brutal transition-shadow duration-150"
       )}
     >
       {accentColor ? (

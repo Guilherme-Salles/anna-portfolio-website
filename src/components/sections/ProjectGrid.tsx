@@ -14,6 +14,8 @@ const itemVariants: Variants = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
 }
 
+const accentColors = ["mint", "lavender", "pink"] as const
+
 interface ProjectGridProps {
   projects: Project[]
 }
@@ -26,9 +28,13 @@ export function ProjectGrid({ projects }: ProjectGridProps) {
       initial="hidden"
       animate="visible"
     >
-      {projects.map((project) => (
+      {projects.map((project, index) => (
         <motion.div key={project.id} variants={itemVariants}>
-          <ProjectCard project={project} />
+          <ProjectCard
+            project={project}
+            index={index}
+            accentColor={accentColors[index % accentColors.length]}
+          />
         </motion.div>
       ))}
     </motion.div>
