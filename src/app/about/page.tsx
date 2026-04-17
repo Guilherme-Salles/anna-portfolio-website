@@ -67,10 +67,10 @@ export default function AboutPage() {
                 style={{ transform: "rotate(2deg)" }}
               >
                 <Image
-                  src="/images/hero-right.png"
+                  src="/images/about-profile-placeholder.png"
                   alt="Anna Bengaly"
                   fill
-                  className="object-cover"
+                  className="object-cover object-top"
                   sizes="240px"
                 />
               </div>
