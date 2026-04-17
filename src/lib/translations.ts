@@ -194,7 +194,7 @@ const pt: typeof en = {
   hero: {
     imageAlt: "Designer de Produto UX/UI",
     description:
-      "Criando experiências digitais centradas no usuário que escalam. Com sede no Rio de Janeiro — disponível para oportunidades remotas em todo o mundo.",
+      "Criando experiências digitais centradas no usuário que escalam. Residente no Rio de Janeiro — disponível para oportunidades remotas em todo o mundo.",
   },
   featuredWork: {
     heading1: "Trabalhos",
@@ -212,7 +212,7 @@ const pt: typeof en = {
     send: "Enviar",
   },
   footer: {
-    label: "Designer de Produto UX/UI",
+    label: "UI/UX Product Designer",
     newTab: "(abre em nova aba)",
   },
   projectCard: {

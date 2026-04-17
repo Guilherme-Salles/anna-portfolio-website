@@ -21,6 +21,7 @@ export const metadata: Metadata = {
     "Portfolio of Anna Bengaly, UX/UI Product Designer based in Rio de Janeiro. Specializing in user experience, interface design, and product strategy.",
   keywords: ["UX Design", "UI Design", "Product Designer", "Rio de Janeiro", "Portfolio"],
   authors: [{ name: "Anna Bengaly" }],
+  manifest: "/site.webmanifest",
   openGraph: {
     type: "website",
     locale: "en_US",
