@@ -56,7 +56,7 @@ export function ContactBanner() {
                Outer div: CSS translate-y-1/2 anchors it to the bottom border.
                Inner motion.div: float animation doesn't conflict with CSS transform.
           ──────────────────────────────────────────────────────────────── */}
-          <div className="absolute bottom-0 right-10 md:right-14 translate-y-1/2 z-10">
+          <div className="absolute -top-12 right-10 md:right-14 z-10">
             <motion.div
               animate={{ y: [0, -10, 0] }}
               transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
@@ -64,8 +64,8 @@ export function ContactBanner() {
               <Image
                 src="/images/rocket.png"
                 alt=""
-                width={96}
-                height={96}
+                width={148}
+                height={148}
                 aria-hidden="true"
               />
             </motion.div>
