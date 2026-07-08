@@ -57,7 +57,7 @@ export function ContactBanner() {
           </div>
 
           {/* badge-rocket: top-right */}
-          <div className="absolute -top-12 right-10 md:right-14 z-10">
+          <div className="absolute -top-11 -right-1 sm:-top-12 sm:right-10 md:right-14 z-10">
             <motion.div
               animate={{ y: [0, -10, 0] }}
               transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
@@ -68,6 +68,7 @@ export function ContactBanner() {
                 width={148}
                 height={148}
                 aria-hidden="true"
+                className="w-24 h-24 sm:w-[148px] sm:h-[148px]"
               />
             </motion.div>
           </div>

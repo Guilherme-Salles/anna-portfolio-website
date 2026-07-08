@@ -55,7 +55,7 @@ export function Hero() {
             {/* ★ — top-left, scattered further out */}
             {!shouldReduce && (
               <motion.div
-                className="absolute -top-10 -left-6 z-10"
+                className="absolute -top-10 -left-3 sm:-left-6 z-10"
                 variants={float(0)}
                 animate="animate"
               >
@@ -66,7 +66,7 @@ export function Hero() {
             {/* ✦ — top-right */}
             {!shouldReduce && (
               <motion.div
-                className="absolute -top-4 -right-8 z-10"
+                className="absolute -top-4 -right-5 sm:-right-8 z-10"
                 variants={float(1)}
                 animate="animate"
               >
