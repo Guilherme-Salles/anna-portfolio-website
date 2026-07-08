@@ -5,7 +5,10 @@
       "Bash(npx create-next-app@latest:*)",
       "Bash(npm install:*)",
       "Bash(npx tsc *)",
-      "Bash(npm run *)"
+      "Bash(npm run *)",
+      "mcp__plugin_ecc_playwright__browser_navigate",
+      "mcp__plugin_ecc_exa__web_fetch_exa",
+      "Bash(curl *)"
     ]
   }
 }

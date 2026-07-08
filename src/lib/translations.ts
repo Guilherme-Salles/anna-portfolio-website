@@ -172,6 +172,7 @@ const en = {
     heading: "All Work.",
   },
   projectDescriptions: {
+    "mood": "A neo-brutalist mobile mood tracker designed to help users record emotions in less than 3 seconds.",
     "nutri-track": "All-in-one fitness and nutrition app to track meals, workouts, and health goals.",
     "conecta-eventos": "Event management app connecting users to discover, organize, and attend events.",
     "smart-home": "Smart home app to control devices, automate routines, and monitor home systems.",
@@ -353,6 +354,7 @@ const pt: typeof en = {
     heading: "Todos os Trabalhos.",
   },
   projectDescriptions: {
+    "mood": "Rastreador de humor mobile com estética neo-brutalista criado para registrar emoções em menos de 3 segundos.",
     "nutri-track": "Aplicativo all-in-one de fitness e nutrição para registrar refeições, treinos e metas de saúde.",
     "conecta-eventos": "Aplicativo de gestão de eventos que conecta usuários a descobrir, organizar e participar de eventos.",
     "smart-home": "Aplicativo de casa inteligente para controlar dispositivos, automatizar rotinas e monitorar sistemas residenciais.",
